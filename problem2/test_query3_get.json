@@ -1,0 +1,42 @@
+{
+  "query_type": "get",
+  "parameters": {
+    "arxiv_id": "0904.4608v2"
+  },
+  "results": [
+    {
+      "categories": [
+        "cs.LG"
+      ],
+      "GSI2PK": "PAPER#0904.4608v2",
+      "title": "Temporal data mining for root-cause analysis of machine faults in\n  automotive assembly lines",
+      "published": "2009-04-29T13:17:31Z",
+      "GSI2SK": "2009-04-29",
+      "abstract": "Engine assembly is a complex and heavily automated distributed-control\nprocess, with large amounts of faults data logged everyday. We describe an\napplication of temporal data mining for analyzing fault logs in an engine\nassembly plant. Frequent episode discovery framework is a model-free method\nthat can be used to deduce (temporal) correlations among events from the logs\nin an efficient manner. In addition to being theoretically elegant and\ncomputationally efficient, frequent episodes are also easy to interpret in the\nform actionable recommendations. Incorporation of domain-specific information\nis critical to successful application of the method for analyzing fault logs in\nthe manufacturing domain. We show how domain-specific knowledge can be\nincorporated using heuristic rules that act as pre-filters and post-filters to\nfrequent episode discovery. The system described here is currently being used\nin one of the engine assembly plants of General Motors and is planned for\nadaptation in other plants. To the best of our knowledge, this paper presents\nthe first real, large-scale application of temporal data mining in the\nmanufacturing domain. We believe that the ideas presented in this paper can\nhelp practitioners engineer tools for analysis in other similar or related\napplication domains as well.",
+      "keywords": [
+        "application",
+        "domain",
+        "engine",
+        "assembly",
+        "data",
+        "temporal",
+        "logs",
+        "frequent",
+        "large",
+        "mining"
+      ],
+      "arxiv_id": "0904.4608v2",
+      "updated": "2009-04-30T17:02:30Z",
+      "authors": [
+        "Srivatsan Laxman",
+        "Basel Shadid",
+        "P. S. Sastry",
+        "K. P. Unnikrishnan"
+      ],
+      "SK": "PAPERID#0904.4608v2",
+      "PK": "CATEGORY#cs.LG"
+    }
+  ],
+  "count": 1,
+  "execution_time_ms": 377
+}

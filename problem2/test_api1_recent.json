@@ -1,0 +1,142 @@
+{
+    "category": "cs.LG",
+    "papers": [
+        {
+            "arxiv_id": "0904.4608v2",
+            "title": "Temporal data mining for root-cause analysis of machine faults in\n  automotive assembly lines",
+            "authors": [
+                "Srivatsan Laxman",
+                "Basel Shadid",
+                "P. S. Sastry",
+                "K. P. Unnikrishnan"
+            ],
+            "published": "2009-04-29T13:17:31Z",
+            "updated": "2009-04-30T17:02:30Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Engine assembly is a complex and heavily automated distributed-control\nprocess, with large amounts of faults data logged everyday. We describe an\napplication of temporal data mining for analyzing fault logs in an engine\nassembly plant. Frequent episode discovery framework is a model-free method\nthat can be used to deduce (temporal) correlations among events from the logs\nin an efficient manner. In addition to being theoretically elegant and\ncomputationally efficient, frequent episodes are also easy to interpret in the\nform actionable recommendations. Incorporation of domain-specific information\nis critical to successful application of the method for analyzing fault logs in\nthe manufacturing domain. We show how domain-specific knowledge can be\nincorporated using heuristic rules that act as pre-filters and post-filters to\nfrequent episode discovery. The system described here is currently being used\nin one of the engine assembly plants of General Motors and is planned for\nadaptation in other plants. To the best of our knowledge, this paper presents\nthe first real, large-scale application of temporal data mining in the\nmanufacturing domain. We believe that the ideas presented in this paper can\nhelp practitioners engineer tools for analysis in other similar or related\napplication domains as well.",
+            "keywords": [
+                "application",
+                "domain",
+                "engine",
+                "assembly",
+                "data",
+                "temporal",
+                "logs",
+                "frequent",
+                "large",
+                "mining"
+            ]
+        },
+        {
+            "arxiv_id": "0904.4527v1",
+            "title": "Limits of Learning about a Categorical Latent Variable under Prior\n  Near-Ignorance",
+            "authors": [
+                "Alberto Piatti",
+                "Marco Zaffalon",
+                "Fabio Trojani",
+                "Marcus Hutter"
+            ],
+            "published": "2009-04-29T03:16:20Z",
+            "updated": "2009-04-29T03:16:20Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "In this paper, we consider the coherent theory of (epistemic) uncertainty of\nWalley, in which beliefs are represented through sets of probability\ndistributions, and we focus on the problem of modeling prior ignorance about a\ncategorical random variable. In this setting, it is a known result that a state\nof prior ignorance is not compatible with learning. To overcome this problem,\nanother state of beliefs, called \\emph{near-ignorance}, has been proposed.\nNear-ignorance resembles ignorance very closely, by satisfying some principles\nthat can arguably be regarded as necessary in a state of ignorance, and allows\nlearning to take place. What this paper does, is to provide new and substantial\nevidence that also near-ignorance cannot be really regarded as a way out of the\nproblem of starting statistical inference in conditions of very weak beliefs.\nThe key to this result is focusing on a setting characterized by a variable of\ninterest that is \\emph{latent}. We argue that such a setting is by far the most\ncommon case in practice, and we provide, for the case of categorical latent\nvariables (and general \\emph{manifest} variables) a condition that, if\nsatisfied, prevents learning to take place under prior near-ignorance. This\ncondition is shown to be easily satisfied even in the most common statistical\nproblems. We regard these results as a strong form of evidence against the\npossibility to adopt a condition of prior near-ignorance in real statistical\nproblems.",
+            "keywords": [
+                "ignorance",
+                "near",
+                "prior",
+                "beliefs",
+                "problem",
+                "setting",
+                "state",
+                "learning",
+                "emph",
+                "statistical"
+            ]
+        },
+        {
+            "arxiv_id": "0904.3664v1",
+            "title": "Introduction to Machine Learning: Class Notes 67577",
+            "authors": [
+                "Amnon Shashua"
+            ],
+            "published": "2009-04-23T11:40:57Z",
+            "updated": "2009-04-23T11:40:57Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Introduction to Machine learning covering Statistical Inference (Bayes, EM,\nML/MaxEnt duality), algebraic and spectral methods (PCA, LDA, CCA, Clustering),\nand PAC learning (the Formal model, VC dimension, Double Sampling theorem).",
+            "keywords": [
+                "learning",
+                "introduction",
+                "machine",
+                "covering",
+                "statistical",
+                "inference",
+                "bayes",
+                "maxent",
+                "duality",
+                "algebraic"
+            ]
+        },
+        {
+            "arxiv_id": "0904.2160v1",
+            "title": "Inferring Dynamic Bayesian Networks using Frequent Episode Mining",
+            "authors": [
+                "Debprakash Patnaik",
+                "Srivatsan Laxman",
+                "Naren Ramakrishnan"
+            ],
+            "published": "2009-04-14T17:32:00Z",
+            "updated": "2009-04-14T17:32:00Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Motivation: Several different threads of research have been proposed for\nmodeling and mining temporal data. On the one hand, approaches such as dynamic\nBayesian networks (DBNs) provide a formal probabilistic basis to model\nrelationships between time-indexed random variables but these models are\nintractable to learn in the general case. On the other, algorithms such as\nfrequent episode mining are scalable to large datasets but do not exhibit the\nrigorous probabilistic interpretations that are the mainstay of the graphical\nmodels literature.\n  Results: We present a unification of these two seemingly diverse threads of\nresearch, by demonstrating how dynamic (discrete) Bayesian networks can be\ninferred from the results of frequent episode mining. This helps bridge the\nmodeling emphasis of the former with the counting emphasis of the latter.\nFirst, we show how, under reasonable assumptions on data characteristics and on\ninfluences of random variables, the optimal DBN structure can be computed using\na greedy, local, algorithm. Next, we connect the optimality of the DBN\nstructure with the notion of fixed-delay episodes and their counts of distinct\noccurrences. Finally, to demonstrate the practical feasibility of our approach,\nwe focus on a specific (but broadly applicable) class of networks, called\nexcitatory networks, and show how the search for the optimal DBN structure can\nbe conducted using just information from frequent episodes. Application on\ndatasets gathered from mathematical models of spiking neurons as well as real\nneuroscience datasets are presented.\n  Availability: Algorithmic implementations, simulator codebases, and datasets\nare available from our website at http://neural-code.cs.vt.edu/dbn",
+            "keywords": [
+                "networks",
+                "datasets",
+                "dbn",
+                "mining",
+                "models",
+                "frequent",
+                "how",
+                "structure",
+                "threads",
+                "research"
+            ]
+        },
+        {
+            "arxiv_id": "0904.0814v1",
+            "title": "Stability Analysis and Learning Bounds for Transductive Regression\n  Algorithms",
+            "authors": [
+                "Corinna Cortes",
+                "Mehryar Mohri",
+                "Dmitry Pechyony",
+                "Ashish Rastogi"
+            ],
+            "published": "2009-04-05T20:08:44Z",
+            "updated": "2009-04-05T20:08:44Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "This paper uses the notion of algorithmic stability to derive novel\ngeneralization bounds for several families of transductive regression\nalgorithms, both by using convexity and closed-form solutions. Our analysis\nhelps compare the stability of these algorithms. It also shows that a number of\nwidely used transductive regression algorithms are in fact unstable. Finally,\nit reports the results of experiments with local transductive regression\ndemonstrating the benefit of our stability bounds for model selection, for one\nof the algorithms, in particular for determining the radius of the local\nneighborhood used by the algorithm.",
+            "keywords": [
+                "algorithms",
+                "stability",
+                "transductive",
+                "regression",
+                "bounds",
+                "used",
+                "local",
+                "uses",
+                "notion",
+                "algorithmic"
+            ]
+        }
+    ],
+    "count": 5
+}

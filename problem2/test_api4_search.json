@@ -1,0 +1,395 @@
+{
+    "category": "cs.LG",
+    "start": "2009-01-01",
+    "end": "2009-12-31",
+    "papers": [
+        {
+            "arxiv_id": "0902.1258v1",
+            "title": "Extraction de concepts sous contraintes dans des donn\u00e9es d'expression\n  de g\u00e8nes",
+            "authors": [
+                "Baptiste Jeudy",
+                "Fran\u00e7ois Rioult"
+            ],
+            "published": "2009-02-07T18:01:09Z",
+            "updated": "2009-02-07T18:01:09Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "In this paper, we propose a technique to extract constrained formal concepts.",
+            "keywords": [
+                "technique",
+                "extract",
+                "constrained",
+                "formal",
+                "concepts"
+            ]
+        },
+        {
+            "arxiv_id": "0902.1259v1",
+            "title": "Database Transposition for Constrained (Closed) Pattern Mining",
+            "authors": [
+                "Baptiste Jeudy",
+                "Fran\u00e7ois Rioult"
+            ],
+            "published": "2009-02-07T18:01:56Z",
+            "updated": "2009-02-07T18:01:56Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Recently, different works proposed a new way to mine patterns in databases\nwith pathological size. For example, experiments in genome biology usually\nprovide databases with thousands of attributes (genes) but only tens of objects\n(experiments). In this case, mining the \"transposed\" database runs through a\nsmaller search space, and the Galois connection allows to infer the closed\npatterns of the original database. We focus here on constrained pattern mining\nfor those unusual databases and give a theoretical framework for database and\nconstraint transposition. We discuss the properties of constraint transposition\nand look into classical constraints. We then address the problem of generating\nthe closed patterns of the original database satisfying the constraint,\nstarting from those mined in the \"transposed\" database. Finally, we show how to\ngenerate all the patterns satisfying the constraint from the closed ones.",
+            "keywords": [
+                "database",
+                "patterns",
+                "constraint",
+                "databases",
+                "closed",
+                "experiments",
+                "mining",
+                "transposed",
+                "original",
+                "transposition"
+            ]
+        },
+        {
+            "arxiv_id": "0902.1284v2",
+            "title": "Multi-Label Prediction via Compressed Sensing",
+            "authors": [
+                "Daniel Hsu",
+                "Sham M. Kakade",
+                "John Langford",
+                "Tong Zhang"
+            ],
+            "published": "2009-02-08T02:30:06Z",
+            "updated": "2009-06-02T16:23:28Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "We consider multi-label prediction problems with large output spaces under\nthe assumption of output sparsity -- that the target (label) vectors have small\nsupport. We develop a general theory for a variant of the popular error\ncorrecting output code scheme, using ideas from compressed sensing for\nexploiting this sparsity. The method can be regarded as a simple reduction from\nmulti-label regression problems to binary regression problems. We show that the\nnumber of subproblems need only be logarithmic in the total number of possible\nlabels, making this approach radically more efficient than others. We also\nstate and prove robustness guarantees for this method in the form of regret\ntransform bounds (in general), and also provide a more detailed analysis for\nthe linear prediction setting.",
+            "keywords": [
+                "label",
+                "problems",
+                "output",
+                "multi",
+                "prediction",
+                "sparsity",
+                "general",
+                "regression",
+                "number",
+                "more"
+            ]
+        },
+        {
+            "arxiv_id": "0902.3373v1",
+            "title": "Learning rules from multisource data for cardiac monitoring",
+            "authors": [
+                "Marie-Odile Cordier",
+                "Elisa Fromont",
+                "Ren\u00e9 Quiniou"
+            ],
+            "published": "2009-02-19T13:47:53Z",
+            "updated": "2009-02-19T13:47:53Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "This paper formalises the concept of learning symbolic rules from multisource\ndata in a cardiac monitoring context. Our sources, electrocardiograms and\narterial blood pressure measures, describe cardiac behaviours from different\nviewpoints. To learn interpretable rules, we use an Inductive Logic Programming\n(ILP) method. We develop an original strategy to cope with the dimensionality\nissues caused by using this ILP technique on a rich multisource language. The\nresults show that our method greatly improves the feasibility and the\nefficiency of the process while staying accurate. They also confirm the\nbenefits of using multiple sources to improve the diagnosis of cardiac\narrhythmias.",
+            "keywords": [
+                "cardiac",
+                "rules",
+                "multisource",
+                "sources",
+                "ilp",
+                "formalises",
+                "concept",
+                "learning",
+                "symbolic",
+                "data"
+            ]
+        },
+        {
+            "arxiv_id": "0902.3846v1",
+            "title": "Uniqueness of Low-Rank Matrix Completion by Rigidity Theory",
+            "authors": [
+                "Amit Singer",
+                "Mihai Cucuringu"
+            ],
+            "published": "2009-02-23T04:05:48Z",
+            "updated": "2009-02-23T04:05:48Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "The problem of completing a low-rank matrix from a subset of its entries is\noften encountered in the analysis of incomplete data sets exhibiting an\nunderlying factor model with applications in collaborative filtering, computer\nvision and control. Most recent work had been focused on constructing efficient\nalgorithms for exact or approximate recovery of the missing matrix entries and\nproving lower bounds for the number of known entries that guarantee a\nsuccessful recovery with high probability. A related problem from both the\nmathematical and algorithmic point of view is the distance geometry problem of\nrealizing points in a Euclidean space from a given subset of their pairwise\ndistances. Rigidity theory answers basic questions regarding the uniqueness of\nthe realization satisfying a given partial set of distances. We observe that\nbasic ideas and tools of rigidity theory can be adapted to determine uniqueness\nof low-rank matrix completion, where inner products play the role that\ndistances play in rigidity theory. This observation leads to an efficient\nrandomized algorithm for testing both local and global unique completion.\nCrucial to our analysis is a new matrix, which we call the completion matrix,\nthat serves as the analogue of the rigidity matrix.",
+            "keywords": [
+                "matrix",
+                "rigidity",
+                "problem",
+                "entries",
+                "distances",
+                "theory",
+                "completion",
+                "low",
+                "rank",
+                "subset"
+            ]
+        },
+        {
+            "arxiv_id": "0902.4127v2",
+            "title": "Prediction with expert evaluators' advice",
+            "authors": [
+                "Alexey Chernov",
+                "Vladimir Vovk"
+            ],
+            "published": "2009-02-24T11:47:03Z",
+            "updated": "2009-03-23T16:28:41Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "We introduce a new protocol for prediction with expert advice in which each\nexpert evaluates the learner's and his own performance using a loss function\nthat may change over time and may be different from the loss functions used by\nthe other experts. The learner's goal is to perform better or not much worse\nthan each expert, as evaluated by that expert, for all experts simultaneously.\nIf the loss functions used by the experts are all proper scoring rules and all\nmixable, we show that the defensive forecasting algorithm enjoys the same\nperformance guarantee as that attainable by the Aggregating Algorithm in the\nstandard setting and known to be optimal. This result is also applied to the\ncase of \"specialist\" (or \"sleeping\") experts. In this case, the defensive\nforecasting algorithm reduces to a simple modification of the Aggregating\nAlgorithm.",
+            "keywords": [
+                "expert",
+                "experts",
+                "algorithm",
+                "loss",
+                "all",
+                "each",
+                "learner",
+                "performance",
+                "functions",
+                "used"
+            ]
+        },
+        {
+            "arxiv_id": "0902.4228v1",
+            "title": "Multiplicative updates For Non-Negative Kernel SVM",
+            "authors": [
+                "Vamsi K. Potluru",
+                "Sergey M. Plis",
+                "Morten Morup",
+                "Vince D. Calhoun",
+                "Terran Lane"
+            ],
+            "published": "2009-02-24T20:38:32Z",
+            "updated": "2009-02-24T20:38:32Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "We present multiplicative updates for solving hard and soft margin support\nvector machines (SVM) with non-negative kernels. They follow as a natural\nextension of the updates for non-negative matrix factorization. No additional\nparam- eter setting, such as choosing learning, rate is required. Ex- periments\ndemonstrate rapid convergence to good classifiers. We analyze the rates of\nasymptotic convergence of the up- dates and establish tight bounds. We test the\nperformance on several datasets using various non-negative kernels and report\nequivalent generalization errors to that of a standard SVM.",
+            "keywords": [
+                "non",
+                "negative",
+                "updates",
+                "svm",
+                "kernels",
+                "convergence",
+                "present",
+                "multiplicative",
+                "solving",
+                "hard"
+            ]
+        },
+        {
+            "arxiv_id": "0903.1125v1",
+            "title": "Efficient Human Computation",
+            "authors": [
+                "Ran Gilad-Bachrach",
+                "Aharon Bar-Hillel",
+                "Liat Ein-Dor"
+            ],
+            "published": "2009-03-05T22:39:46Z",
+            "updated": "2009-03-05T22:39:46Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Collecting large labeled data sets is a laborious and expensive task, whose\nscaling up requires division of the labeling workload between many teachers.\nWhen the number of classes is large, miscorrespondences between the labels\ngiven by the different teachers are likely to occur, which, in the extreme\ncase, may reach total inconsistency. In this paper we describe how globally\nconsistent labels can be obtained, despite the absence of teacher coordination,\nand discuss the possible efficiency of this process in terms of human labor. We\ndefine a notion of label efficiency, measuring the ratio between the number of\nglobally consistent labels obtained and the number of labels provided by\ndistributed teachers. We show that the efficiency depends critically on the\nratio alpha between the number of data instances seen by a single teacher, and\nthe number of classes. We suggest several algorithms for the distributed\nlabeling problem, and analyze their efficiency as a function of alpha. In\naddition, we provide an upper bound on label efficiency for the case of\ncompletely uncoordinated teachers, and show that efficiency approaches 0 as the\nratio between the number of labels each teacher provides and the number of\nclasses drops (i.e. alpha goes to 0).",
+            "keywords": [
+                "number",
+                "efficiency",
+                "between",
+                "labels",
+                "teachers",
+                "classes",
+                "teacher",
+                "ratio",
+                "alpha",
+                "large"
+            ]
+        },
+        {
+            "arxiv_id": "0903.2299v3",
+            "title": "Differential Contrastive Divergence",
+            "authors": [
+                "David McAllester"
+            ],
+            "published": "2009-03-13T13:47:03Z",
+            "updated": "2013-07-08T15:17:20Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "This paper has been retracted.",
+            "keywords": [
+                "retracted"
+            ]
+        },
+        {
+            "arxiv_id": "0903.2870v2",
+            "title": "On $p$-adic Classification",
+            "authors": [
+                "Patrick Erik Bradley"
+            ],
+            "published": "2009-03-16T22:52:06Z",
+            "updated": "2009-06-24T14:10:45Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "A $p$-adic modification of the split-LBG classification method is presented\nin which first clusterings and then cluster centers are computed which locally\nminimise an energy function. The outcome for a fixed dataset is independent of\nthe prime number $p$ with finitely many exceptions. The methods are applied to\nthe construction of $p$-adic classifiers in the context of learning.",
+            "keywords": [
+                "adic",
+                "which",
+                "modification",
+                "split",
+                "lbg",
+                "classification",
+                "presented",
+                "first",
+                "clusterings",
+                "then"
+            ]
+        },
+        {
+            "arxiv_id": "0904.0814v1",
+            "title": "Stability Analysis and Learning Bounds for Transductive Regression\n  Algorithms",
+            "authors": [
+                "Corinna Cortes",
+                "Mehryar Mohri",
+                "Dmitry Pechyony",
+                "Ashish Rastogi"
+            ],
+            "published": "2009-04-05T20:08:44Z",
+            "updated": "2009-04-05T20:08:44Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "This paper uses the notion of algorithmic stability to derive novel\ngeneralization bounds for several families of transductive regression\nalgorithms, both by using convexity and closed-form solutions. Our analysis\nhelps compare the stability of these algorithms. It also shows that a number of\nwidely used transductive regression algorithms are in fact unstable. Finally,\nit reports the results of experiments with local transductive regression\ndemonstrating the benefit of our stability bounds for model selection, for one\nof the algorithms, in particular for determining the radius of the local\nneighborhood used by the algorithm.",
+            "keywords": [
+                "algorithms",
+                "stability",
+                "transductive",
+                "regression",
+                "bounds",
+                "used",
+                "local",
+                "uses",
+                "notion",
+                "algorithmic"
+            ]
+        },
+        {
+            "arxiv_id": "0904.2160v1",
+            "title": "Inferring Dynamic Bayesian Networks using Frequent Episode Mining",
+            "authors": [
+                "Debprakash Patnaik",
+                "Srivatsan Laxman",
+                "Naren Ramakrishnan"
+            ],
+            "published": "2009-04-14T17:32:00Z",
+            "updated": "2009-04-14T17:32:00Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Motivation: Several different threads of research have been proposed for\nmodeling and mining temporal data. On the one hand, approaches such as dynamic\nBayesian networks (DBNs) provide a formal probabilistic basis to model\nrelationships between time-indexed random variables but these models are\nintractable to learn in the general case. On the other, algorithms such as\nfrequent episode mining are scalable to large datasets but do not exhibit the\nrigorous probabilistic interpretations that are the mainstay of the graphical\nmodels literature.\n  Results: We present a unification of these two seemingly diverse threads of\nresearch, by demonstrating how dynamic (discrete) Bayesian networks can be\ninferred from the results of frequent episode mining. This helps bridge the\nmodeling emphasis of the former with the counting emphasis of the latter.\nFirst, we show how, under reasonable assumptions on data characteristics and on\ninfluences of random variables, the optimal DBN structure can be computed using\na greedy, local, algorithm. Next, we connect the optimality of the DBN\nstructure with the notion of fixed-delay episodes and their counts of distinct\noccurrences. Finally, to demonstrate the practical feasibility of our approach,\nwe focus on a specific (but broadly applicable) class of networks, called\nexcitatory networks, and show how the search for the optimal DBN structure can\nbe conducted using just information from frequent episodes. Application on\ndatasets gathered from mathematical models of spiking neurons as well as real\nneuroscience datasets are presented.\n  Availability: Algorithmic implementations, simulator codebases, and datasets\nare available from our website at http://neural-code.cs.vt.edu/dbn",
+            "keywords": [
+                "networks",
+                "datasets",
+                "dbn",
+                "mining",
+                "models",
+                "frequent",
+                "how",
+                "structure",
+                "threads",
+                "research"
+            ]
+        },
+        {
+            "arxiv_id": "0904.3664v1",
+            "title": "Introduction to Machine Learning: Class Notes 67577",
+            "authors": [
+                "Amnon Shashua"
+            ],
+            "published": "2009-04-23T11:40:57Z",
+            "updated": "2009-04-23T11:40:57Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Introduction to Machine learning covering Statistical Inference (Bayes, EM,\nML/MaxEnt duality), algebraic and spectral methods (PCA, LDA, CCA, Clustering),\nand PAC learning (the Formal model, VC dimension, Double Sampling theorem).",
+            "keywords": [
+                "learning",
+                "introduction",
+                "machine",
+                "covering",
+                "statistical",
+                "inference",
+                "bayes",
+                "maxent",
+                "duality",
+                "algebraic"
+            ]
+        },
+        {
+            "arxiv_id": "0904.4527v1",
+            "title": "Limits of Learning about a Categorical Latent Variable under Prior\n  Near-Ignorance",
+            "authors": [
+                "Alberto Piatti",
+                "Marco Zaffalon",
+                "Fabio Trojani",
+                "Marcus Hutter"
+            ],
+            "published": "2009-04-29T03:16:20Z",
+            "updated": "2009-04-29T03:16:20Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "In this paper, we consider the coherent theory of (epistemic) uncertainty of\nWalley, in which beliefs are represented through sets of probability\ndistributions, and we focus on the problem of modeling prior ignorance about a\ncategorical random variable. In this setting, it is a known result that a state\nof prior ignorance is not compatible with learning. To overcome this problem,\nanother state of beliefs, called \\emph{near-ignorance}, has been proposed.\nNear-ignorance resembles ignorance very closely, by satisfying some principles\nthat can arguably be regarded as necessary in a state of ignorance, and allows\nlearning to take place. What this paper does, is to provide new and substantial\nevidence that also near-ignorance cannot be really regarded as a way out of the\nproblem of starting statistical inference in conditions of very weak beliefs.\nThe key to this result is focusing on a setting characterized by a variable of\ninterest that is \\emph{latent}. We argue that such a setting is by far the most\ncommon case in practice, and we provide, for the case of categorical latent\nvariables (and general \\emph{manifest} variables) a condition that, if\nsatisfied, prevents learning to take place under prior near-ignorance. This\ncondition is shown to be easily satisfied even in the most common statistical\nproblems. We regard these results as a strong form of evidence against the\npossibility to adopt a condition of prior near-ignorance in real statistical\nproblems.",
+            "keywords": [
+                "ignorance",
+                "near",
+                "prior",
+                "beliefs",
+                "problem",
+                "setting",
+                "state",
+                "learning",
+                "emph",
+                "statistical"
+            ]
+        },
+        {
+            "arxiv_id": "0904.4608v2",
+            "title": "Temporal data mining for root-cause analysis of machine faults in\n  automotive assembly lines",
+            "authors": [
+                "Srivatsan Laxman",
+                "Basel Shadid",
+                "P. S. Sastry",
+                "K. P. Unnikrishnan"
+            ],
+            "published": "2009-04-29T13:17:31Z",
+            "updated": "2009-04-30T17:02:30Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Engine assembly is a complex and heavily automated distributed-control\nprocess, with large amounts of faults data logged everyday. We describe an\napplication of temporal data mining for analyzing fault logs in an engine\nassembly plant. Frequent episode discovery framework is a model-free method\nthat can be used to deduce (temporal) correlations among events from the logs\nin an efficient manner. In addition to being theoretically elegant and\ncomputationally efficient, frequent episodes are also easy to interpret in the\nform actionable recommendations. Incorporation of domain-specific information\nis critical to successful application of the method for analyzing fault logs in\nthe manufacturing domain. We show how domain-specific knowledge can be\nincorporated using heuristic rules that act as pre-filters and post-filters to\nfrequent episode discovery. The system described here is currently being used\nin one of the engine assembly plants of General Motors and is planned for\nadaptation in other plants. To the best of our knowledge, this paper presents\nthe first real, large-scale application of temporal data mining in the\nmanufacturing domain. We believe that the ideas presented in this paper can\nhelp practitioners engineer tools for analysis in other similar or related\napplication domains as well.",
+            "keywords": [
+                "application",
+                "domain",
+                "engine",
+                "assembly",
+                "data",
+                "temporal",
+                "logs",
+                "frequent",
+                "large",
+                "mining"
+            ]
+        }
+    ],
+    "count": 15
+}

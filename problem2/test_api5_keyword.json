@@ -1,0 +1,140 @@
+{
+    "keyword": "learning",
+    "papers": [
+        {
+            "arxiv_id": "0904.4527v1",
+            "title": "Limits of Learning about a Categorical Latent Variable under Prior\n  Near-Ignorance",
+            "authors": [
+                "Alberto Piatti",
+                "Marco Zaffalon",
+                "Fabio Trojani",
+                "Marcus Hutter"
+            ],
+            "published": "2009-04-29T03:16:20Z",
+            "updated": "2009-04-29T03:16:20Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "In this paper, we consider the coherent theory of (epistemic) uncertainty of\nWalley, in which beliefs are represented through sets of probability\ndistributions, and we focus on the problem of modeling prior ignorance about a\ncategorical random variable. In this setting, it is a known result that a state\nof prior ignorance is not compatible with learning. To overcome this problem,\nanother state of beliefs, called \\emph{near-ignorance}, has been proposed.\nNear-ignorance resembles ignorance very closely, by satisfying some principles\nthat can arguably be regarded as necessary in a state of ignorance, and allows\nlearning to take place. What this paper does, is to provide new and substantial\nevidence that also near-ignorance cannot be really regarded as a way out of the\nproblem of starting statistical inference in conditions of very weak beliefs.\nThe key to this result is focusing on a setting characterized by a variable of\ninterest that is \\emph{latent}. We argue that such a setting is by far the most\ncommon case in practice, and we provide, for the case of categorical latent\nvariables (and general \\emph{manifest} variables) a condition that, if\nsatisfied, prevents learning to take place under prior near-ignorance. This\ncondition is shown to be easily satisfied even in the most common statistical\nproblems. We regard these results as a strong form of evidence against the\npossibility to adopt a condition of prior near-ignorance in real statistical\nproblems.",
+            "keywords": [
+                "ignorance",
+                "near",
+                "prior",
+                "beliefs",
+                "problem",
+                "setting",
+                "state",
+                "learning",
+                "emph",
+                "statistical"
+            ]
+        },
+        {
+            "arxiv_id": "0904.3664v1",
+            "title": "Introduction to Machine Learning: Class Notes 67577",
+            "authors": [
+                "Amnon Shashua"
+            ],
+            "published": "2009-04-23T11:40:57Z",
+            "updated": "2009-04-23T11:40:57Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "Introduction to Machine learning covering Statistical Inference (Bayes, EM,\nML/MaxEnt duality), algebraic and spectral methods (PCA, LDA, CCA, Clustering),\nand PAC learning (the Formal model, VC dimension, Double Sampling theorem).",
+            "keywords": [
+                "learning",
+                "introduction",
+                "machine",
+                "covering",
+                "statistical",
+                "inference",
+                "bayes",
+                "maxent",
+                "duality",
+                "algebraic"
+            ]
+        },
+        {
+            "arxiv_id": "0902.3373v1",
+            "title": "Learning rules from multisource data for cardiac monitoring",
+            "authors": [
+                "Marie-Odile Cordier",
+                "Elisa Fromont",
+                "Ren\u00e9 Quiniou"
+            ],
+            "published": "2009-02-19T13:47:53Z",
+            "updated": "2009-02-19T13:47:53Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "This paper formalises the concept of learning symbolic rules from multisource\ndata in a cardiac monitoring context. Our sources, electrocardiograms and\narterial blood pressure measures, describe cardiac behaviours from different\nviewpoints. To learn interpretable rules, we use an Inductive Logic Programming\n(ILP) method. We develop an original strategy to cope with the dimensionality\nissues caused by using this ILP technique on a rich multisource language. The\nresults show that our method greatly improves the feasibility and the\nefficiency of the process while staying accurate. They also confirm the\nbenefits of using multiple sources to improve the diagnosis of cardiac\narrhythmias.",
+            "keywords": [
+                "cardiac",
+                "rules",
+                "multisource",
+                "sources",
+                "ilp",
+                "formalises",
+                "concept",
+                "learning",
+                "symbolic",
+                "data"
+            ]
+        },
+        {
+            "arxiv_id": "0812.4952v4",
+            "title": "Importance Weighted Active Learning",
+            "authors": [
+                "Alina Beygelzimer",
+                "Sanjoy Dasgupta",
+                "John Langford"
+            ],
+            "published": "2008-12-29T18:29:08Z",
+            "updated": "2009-05-20T17:40:23Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "We present a practical and statistically consistent scheme for actively\nlearning binary classifiers under general loss functions. Our algorithm uses\nimportance weighting to correct sampling bias, and by controlling the variance,\nwe are able to give rigorous label complexity bounds for the learning process.\nExperiments on passively labeled data show that this approach reduces the label\ncomplexity required to achieve good predictive performance on many learning\nproblems.",
+            "keywords": [
+                "learning",
+                "label",
+                "complexity",
+                "present",
+                "practical",
+                "statistically",
+                "consistent",
+                "scheme",
+                "actively",
+                "binary"
+            ]
+        },
+        {
+            "arxiv_id": "0812.1869v1",
+            "title": "Convex Sparse Matrix Factorizations",
+            "authors": [
+                "Francis Bach",
+                "Julien Mairal",
+                "Jean Ponce"
+            ],
+            "published": "2008-12-10T09:00:40Z",
+            "updated": "2008-12-10T09:00:40Z",
+            "categories": [
+                "cs.LG"
+            ],
+            "abstract": "We present a convex formulation of dictionary learning for sparse signal\ndecomposition. Convexity is obtained by replacing the usual explicit upper\nbound on the dictionary size by a convex rank-reducing term similar to the\ntrace norm. In particular, our formulation introduces an explicit trade-off\nbetween size and sparsity of the decomposition of rectangular matrices. Using a\nlarge set of synthetic examples, we compare the estimation abilities of the\nconvex and non-convex approaches, showing that while the convex formulation has\na single local minimum, this may lead in some cases to performance which is\ninferior to the local minima of the non-convex formulation.",
+            "keywords": [
+                "convex",
+                "formulation",
+                "dictionary",
+                "decomposition",
+                "explicit",
+                "size",
+                "non",
+                "local",
+                "present",
+                "learning"
+            ]
+        }
+    ],
+    "count": 5
+}
