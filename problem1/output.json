@@ -1,0 +1,6360 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 573B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 302B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 129B done
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/python:3.11-slim@sha256:8eb5fc663972b871c528fef04be4eaa9ab8ab4539a5316c4b8c133771214a617
+#6 resolve docker.io/library/python:3.11-slim@sha256:8eb5fc663972b871c528fef04be4eaa9ab8ab4539a5316c4b8c133771214a617 done
+#6 DONE 0.0s
+
+#7 [5/6] RUN pip install -r requirements.txt
+#7 CACHED
+
+#8 [3/6] RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [4/6] COPY requirements.txt .
+#9 CACHED
+
+#10 [2/6] WORKDIR /app
+#10 CACHED
+
+#11 [6/6] COPY schema.sql load_data.py queries.py ./
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:90b707c4da4cdb66967f22f97ae60c166141dc152a6e58796baaa88c01f9e297 done
+#12 exporting config sha256:bb3e4dc2807bd122f963a6adaf3e9e66138f763a01581c056d1783ed0d2a14fd done
+#12 exporting attestation manifest sha256:1a7aaa011414bd45139cc865098946c5bbcfce7e0102a7d0d41932a050d458e0 done
+#12 exporting manifest list sha256:8170fddd3a1a9be02bf4007cc2de8d1929090df9bfc35f9d34a6c2c0cfd633c6 done
+#12 naming to docker.io/library/problem1-app:latest done
+#12 unpacking to docker.io/library/problem1-app:latest done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+Starting PostgreSQL...
+Waiting for database...
+Loading data...
+Connected to transit@db
+Creating schema...
+
+Running sample queries...
+{
+  "query": "Q1",
+  "description": "List all stops on Route 20 in order",
+  "results": [
+    {
+      "stop_name": "5th / Colorado",
+      "sequence": "1",
+      "time_offset": "0"
+    },
+    {
+      "stop_name": "5th / Santa Monica",
+      "sequence": "3",
+      "time_offset": "2"
+    },
+    {
+      "stop_name": "Wilshire / 6th",
+      "sequence": "4",
+      "time_offset": "4"
+    },
+    {
+      "stop_name": "Wilshire / Lincoln",
+      "sequence": "5",
+      "time_offset": "5"
+    },
+    {
+      "stop_name": "Wilshire / 11th",
+      "sequence": "6",
+      "time_offset": "6"
+    },
+    {
+      "stop_name": "Wilshire / 14th",
+      "sequence": "7",
+      "time_offset": "7"
+    },
+    {
+      "stop_name": "Wilshire / 17th",
+      "sequence": "8",
+      "time_offset": "8"
+    },
+    {
+      "stop_name": "Wilshire / 20th",
+      "sequence": "9",
+      "time_offset": "8"
+    },
+    {
+      "stop_name": "Wilshire / 23rd",
+      "sequence": "10",
+      "time_offset": "9"
+    },
+    {
+      "stop_name": "Wilshire / 26th",
+      "sequence": "11",
+      "time_offset": "10"
+    },
+    {
+      "stop_name": "Wilshire / Yale",
+      "sequence": "12",
+      "time_offset": "10"
+    },
+    {
+      "stop_name": "Wilshire / Berkeley",
+      "sequence": "13",
+      "time_offset": "11"
+    },
+    {
+      "stop_name": "Wilshire / McClellan",
+      "sequence": "14",
+      "time_offset": "11"
+    },
+    {
+      "stop_name": "Wilshire / Bundy",
+      "sequence": "15",
+      "time_offset": "12"
+    },
+    {
+      "stop_name": "Wilshire / Brockton",
+      "sequence": "16",
+      "time_offset": "12"
+    },
+    {
+      "stop_name": "Wilshire / Westgate",
+      "sequence": "17",
+      "time_offset": "13"
+    },
+    {
+      "stop_name": "Wilshire / Barrington",
+      "sequence": "18",
+      "time_offset": "13"
+    },
+    {
+      "stop_name": "Wilshire / Federal",
+      "sequence": "19",
+      "time_offset": "14"
+    },
+    {
+      "stop_name": "Wilshire / Bonsall",
+      "sequence": "20",
+      "time_offset": "15"
+    },
+    {
+      "stop_name": "Wilshire / Veteran",
+      "sequence": "21",
+      "time_offset": "17"
+    }
+  ],
+  "count": 20
+}
+{
+  "query": "Q3",
+  "description": "Transfer stops (stops on 2+ routes)",
+  "results": [
+    {
+      "stop_name": "Vermont / 120th",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / 88th",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Athens Station",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Century",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Florence",
+      "line_count": "2"
+    }
+  ],
+  "count": 5
+}
+
+Testing all queries...
+{
+  "query": "Q1",
+  "description": "List all stops on Route 20 in order",
+  "results": [
+    {
+      "stop_name": "5th / Colorado",
+      "sequence": "1",
+      "time_offset": "0"
+    },
+    {
+      "stop_name": "5th / Santa Monica",
+      "sequence": "3",
+      "time_offset": "2"
+    },
+    {
+      "stop_name": "Wilshire / 6th",
+      "sequence": "4",
+      "time_offset": "4"
+    },
+    {
+      "stop_name": "Wilshire / Lincoln",
+      "sequence": "5",
+      "time_offset": "5"
+    },
+    {
+      "stop_name": "Wilshire / 11th",
+      "sequence": "6",
+      "time_offset": "6"
+    },
+    {
+      "stop_name": "Wilshire / 14th",
+      "sequence": "7",
+      "time_offset": "7"
+    },
+    {
+      "stop_name": "Wilshire / 17th",
+      "sequence": "8",
+      "time_offset": "8"
+    },
+    {
+      "stop_name": "Wilshire / 20th",
+      "sequence": "9",
+      "time_offset": "8"
+    },
+    {
+      "stop_name": "Wilshire / 23rd",
+      "sequence": "10",
+      "time_offset": "9"
+    },
+    {
+      "stop_name": "Wilshire / 26th",
+      "sequence": "11",
+      "time_offset": "10"
+    },
+    {
+      "stop_name": "Wilshire / Yale",
+      "sequence": "12",
+      "time_offset": "10"
+    },
+    {
+      "stop_name": "Wilshire / Berkeley",
+      "sequence": "13",
+      "time_offset": "11"
+    },
+    {
+      "stop_name": "Wilshire / McClellan",
+      "sequence": "14",
+      "time_offset": "11"
+    },
+    {
+      "stop_name": "Wilshire / Bundy",
+      "sequence": "15",
+      "time_offset": "12"
+    },
+    {
+      "stop_name": "Wilshire / Brockton",
+      "sequence": "16",
+      "time_offset": "12"
+    },
+    {
+      "stop_name": "Wilshire / Westgate",
+      "sequence": "17",
+      "time_offset": "13"
+    },
+    {
+      "stop_name": "Wilshire / Barrington",
+      "sequence": "18",
+      "time_offset": "13"
+    },
+    {
+      "stop_name": "Wilshire / Federal",
+      "sequence": "19",
+      "time_offset": "14"
+    },
+    {
+      "stop_name": "Wilshire / Bonsall",
+      "sequence": "20",
+      "time_offset": "15"
+    },
+    {
+      "stop_name": "Wilshire / Veteran",
+      "sequence": "21",
+      "time_offset": "17"
+    }
+  ],
+  "count": 20
+}
+{
+  "query": "Q2",
+  "description": "Trips during morning rush (7-9 AM)",
+  "results": [
+    {
+      "trip_id": "T0107",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0077",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0152",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0047",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0002",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0137",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0122",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0092",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0062",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0017",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0032",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-01 07:00:00"
+    },
+    {
+      "trip_id": "T0093",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0108",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0018",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0033",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0063",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0078",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0003",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0138",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0123",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0048",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0153",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-01 08:00:00"
+    },
+    {
+      "trip_id": "T0227",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0272",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0302",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0212",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0257",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0317",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0197",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0287",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0242",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0182",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0167",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-02 07:00:00"
+    },
+    {
+      "trip_id": "T0228",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0168",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0303",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0183",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0288",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0198",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0273",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0318",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0213",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0258",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0243",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-02 08:00:00"
+    },
+    {
+      "trip_id": "T0437",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0347",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0392",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0377",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0482",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0467",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0332",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0422",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0362",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0452",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0407",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-03 07:00:00"
+    },
+    {
+      "trip_id": "T0333",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0438",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0393",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0348",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0468",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0363",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0378",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0423",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0483",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0408",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0453",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-03 08:00:00"
+    },
+    {
+      "trip_id": "T0572",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0497",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0512",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0527",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0542",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0557",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0587",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0602",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0617",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0632",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0647",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-04 07:00:00"
+    },
+    {
+      "trip_id": "T0528",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0573",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0498",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0648",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0588",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0543",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0633",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0558",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0603",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0513",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0618",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-04 08:00:00"
+    },
+    {
+      "trip_id": "T0752",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0692",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0782",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0767",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0722",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0662",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0797",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0707",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0812",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0677",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0737",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-05 07:00:00"
+    },
+    {
+      "trip_id": "T0663",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0813",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0678",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0693",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0708",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0753",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0783",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0723",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0738",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0798",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0768",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-05 08:00:00"
+    },
+    {
+      "trip_id": "T0872",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0887",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0917",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0932",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0947",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0827",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0857",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0962",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0842",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0977",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0902",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-06 07:00:00"
+    },
+    {
+      "trip_id": "T0903",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0858",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0873",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0963",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0933",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0828",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0843",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0978",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0888",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0918",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T0948",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-06 08:00:00"
+    },
+    {
+      "trip_id": "T1097",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T0992",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1112",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1007",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1142",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1052",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1022",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1127",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1082",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1067",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1037",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-07 07:00:00"
+    },
+    {
+      "trip_id": "T1068",
+      "line_name": "Route 62",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1128",
+      "line_name": "Route 720",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1098",
+      "line_name": "Route 207",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1053",
+      "line_name": "Route 60",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1083",
+      "line_name": "Route 204",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T0993",
+      "line_name": "Route 2",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1023",
+      "line_name": "Route 20",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1008",
+      "line_name": "Route 4",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1143",
+      "line_name": "Route 754",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1038",
+      "line_name": "Route 33",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    },
+    {
+      "trip_id": "T1113",
+      "line_name": "Route 217",
+      "scheduled_departure": "2025-10-07 08:00:00"
+    }
+  ],
+  "count": 154
+}
+{
+  "query": "Q3",
+  "description": "Transfer stops (stops on 2+ routes)",
+  "results": [
+    {
+      "stop_name": "Vermont / 120th",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / 88th",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Athens Station",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Century",
+      "line_count": "2"
+    },
+    {
+      "stop_name": "Vermont / Florence",
+      "line_count": "2"
+    }
+  ],
+  "count": 5
+}
+{
+  "query": "Q4",
+  "description": "Complete route for trip T0001",
+  "results": [
+    {
+      "stop_name": "Le Conte / Broxton",
+      "sequence": "1"
+    },
+    {
+      "stop_name": "Le Conte / Westwood",
+      "sequence": "2"
+    },
+    {
+      "stop_name": "Le Conte / Tiverton",
+      "sequence": "3"
+    },
+    {
+      "stop_name": "Hilgard / Le Conte",
+      "sequence": "4"
+    },
+    {
+      "stop_name": "Hilgard / Manning",
+      "sequence": "5"
+    },
+    {
+      "stop_name": "Hilgard / Westholme",
+      "sequence": "6"
+    },
+    {
+      "stop_name": "Hilgard / Wyton",
+      "sequence": "7"
+    },
+    {
+      "stop_name": "Hilgard / Charing Cross",
+      "sequence": "8"
+    },
+    {
+      "stop_name": "Sunset / Beverly Glen",
+      "sequence": "9"
+    },
+    {
+      "stop_name": "Sunset / Charing Cross",
+      "sequence": "10"
+    },
+    {
+      "stop_name": "Sunset / Carolwood",
+      "sequence": "11"
+    },
+    {
+      "stop_name": "Sunset / Copley",
+      "sequence": "12"
+    },
+    {
+      "stop_name": "Sunset / Whittier",
+      "sequence": "13"
+    },
+    {
+      "stop_name": "Sunset / Bedford",
+      "sequence": "14"
+    },
+    {
+      "stop_name": "Sunset / Rodeo",
+      "sequence": "15"
+    },
+    {
+      "stop_name": "Sunset / Beverly",
+      "sequence": "16"
+    },
+    {
+      "stop_name": "Sunset / Rexford",
+      "sequence": "17"
+    },
+    {
+      "stop_name": "Sunset / Alpine",
+      "sequence": "18"
+    },
+    {
+      "stop_name": "Sunset / Foothill",
+      "sequence": "19"
+    },
+    {
+      "stop_name": "Sunset / Maple",
+      "sequence": "20"
+    },
+    {
+      "stop_name": "Sunset / Hillcrest",
+      "sequence": "21"
+    }
+  ],
+  "count": 21
+}
+{
+  "query": "Q5",
+  "description": "Routes serving both Wilshire / Veteran and Le Conte / Broxton",
+  "results": [],
+  "count": 0
+}
+{
+  "query": "Q6",
+  "description": "Average ridership by line",
+  "results": [
+    {
+      "line_name": "Route 207",
+      "avg_passengers": "52.8444444444444444"
+    },
+    {
+      "line_name": "Route 33",
+      "avg_passengers": "52.6970521541950113"
+    },
+    {
+      "line_name": "Route 754",
+      "avg_passengers": "52.6303854875283447"
+    },
+    {
+      "line_name": "Route 62",
+      "avg_passengers": "52.5160997732426304"
+    },
+    {
+      "line_name": "Route 720",
+      "avg_passengers": "52.4607709750566893"
+    },
+    {
+      "line_name": "Route 2",
+      "avg_passengers": "52.3224489795918367"
+    },
+    {
+      "line_name": "Route 20",
+      "avg_passengers": "52.3147619047619048"
+    },
+    {
+      "line_name": "Route 60",
+      "avg_passengers": "52.3038548752834467"
+    },
+    {
+      "line_name": "Route 4",
+      "avg_passengers": "51.9292517006802721"
+    },
+    {
+      "line_name": "Route 217",
+      "avg_passengers": "51.8385714285714286"
+    },
+    {
+      "line_name": "Route 204",
+      "avg_passengers": "51.5111111111111111"
+    }
+  ],
+  "count": 11
+}
+{
+  "query": "Q7",
+  "description": "Top 10 busiest stops",
+  "results": [
+    {
+      "stop_name": "Vermont / 88th",
+      "total_activity": "11609"
+    },
+    {
+      "stop_name": "Vermont / Athens Station",
+      "total_activity": "11546"
+    },
+    {
+      "stop_name": "Vermont / Century",
+      "total_activity": "11383"
+    },
+    {
+      "stop_name": "Vermont / Florence",
+      "total_activity": "11324"
+    },
+    {
+      "stop_name": "Western / 62nd",
+      "total_activity": "6298"
+    },
+    {
+      "stop_name": "183rd / Alburtis",
+      "total_activity": "6209"
+    },
+    {
+      "stop_name": "Western / 110th",
+      "total_activity": "6194"
+    },
+    {
+      "stop_name": "Vermont / 120th",
+      "total_activity": "6174"
+    },
+    {
+      "stop_name": "Wilshire / Lincoln",
+      "total_activity": "6138"
+    },
+    {
+      "stop_name": "Long Beach / Rosecrans",
+      "total_activity": "6122"
+    }
+  ],
+  "count": 10
+}
+{
+  "query": "Q8",
+  "description": "Count delays by line (>2 min late)",
+  "results": [
+    {
+      "line_name": "Route 204",
+      "delay_count": "1489"
+    },
+    {
+      "line_name": "Route 60",
+      "delay_count": "1444"
+    },
+    {
+      "line_name": "Route 207",
+      "delay_count": "1433"
+    },
+    {
+      "line_name": "Route 33",
+      "delay_count": "1411"
+    },
+    {
+      "line_name": "Route 217",
+      "delay_count": "1404"
+    },
+    {
+      "line_name": "Route 20",
+      "delay_count": "1365"
+    },
+    {
+      "line_name": "Route 62",
+      "delay_count": "1361"
+    },
+    {
+      "line_name": "Route 720",
+      "delay_count": "1348"
+    },
+    {
+      "line_name": "Route 4",
+      "delay_count": "1309"
+    },
+    {
+      "line_name": "Route 754",
+      "delay_count": "1285"
+    },
+    {
+      "line_name": "Route 2",
+      "delay_count": "1267"
+    }
+  ],
+  "count": 11
+}
+{
+  "query": "Q9",
+  "description": "Trips with 3+ delayed stops",
+  "results": [
+    {
+      "trip_id": "T0068",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0083",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0103",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0119",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0138",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0211",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0225",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0240",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0246",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0250",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0267",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0338",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0377",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0382",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0396",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0409",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0423",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0424",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0427",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0450",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0490",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0505",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0519",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0555",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0564",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0565",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0580",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0593",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0595",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0602",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0609",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0643",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0652",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0664",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0673",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0707",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0779",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0808",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0902",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0906",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0907",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0915",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0916",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0926",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0994",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1002",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1048",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1083",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1097",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1098",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1104",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1110",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1135",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T1146",
+      "delayed_stop_count": "21"
+    },
+    {
+      "trip_id": "T0027",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0050",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0052",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0053",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0059",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0079",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0101",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0110",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0139",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0143",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0151",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0174",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0195",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0233",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0239",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0243",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0247",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0264",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0278",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0333",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0383",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0384",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0394",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0430",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0466",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0475",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0528",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0559",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0567",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0573",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0587",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0619",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0654",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0678",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0724",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0744",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0746",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0764",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0790",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0795",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0804",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0835",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0840",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0844",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0900",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0905",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0911",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0929",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0933",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0937",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0950",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0970",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0972",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0985",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0986",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1018",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1029",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1035",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1047",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1053",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1059",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1061",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1086",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1088",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1090",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1136",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1137",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T1144",
+      "delayed_stop_count": "20"
+    },
+    {
+      "trip_id": "T0009",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0020",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0022",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0023",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0044",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0062",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0063",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0070",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0095",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0102",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0106",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0113",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0124",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0129",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0133",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0152",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0156",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0163",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0165",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0171",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0186",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0188",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0197",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0223",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0230",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0236",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0242",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0245",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0273",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0307",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0311",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0312",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0317",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0345",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0353",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0369",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0375",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0388",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0391",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0392",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0395",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0407",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0408",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0428",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0434",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0439",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0472",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0480",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0531",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0532",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0536",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0569",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0579",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0589",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0596",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0598",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0615",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0658",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0700",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0702",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0703",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0710",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0733",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0756",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0759",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0768",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0776",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0780",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0816",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0824",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0838",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0859",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0868",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0874",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0880",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0889",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0922",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1022",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1024",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1026",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1031",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1034",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1041",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1050",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1063",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1066",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1092",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1093",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1096",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1114",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1129",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1153",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T1154",
+      "delayed_stop_count": "19"
+    },
+    {
+      "trip_id": "T0002",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0039",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0043",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0047",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0056",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0075",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0097",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0107",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0125",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0131",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0169",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0170",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0175",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0190",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0196",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0210",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0235",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0283",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0288",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0310",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0331",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0358",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0376",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0386",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0399",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0402",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0438",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0440",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0445",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0451",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0458",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0461",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0468",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0477",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0498",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0501",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0514",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0524",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0525",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0526",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0539",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0561",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0563",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0570",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0576",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0582",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0583",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0588",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0604",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0629",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0646",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0669",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0670",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0679",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0697",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0706",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0715",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0716",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0741",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0760",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0765",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0773",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0796",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0830",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0834",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0877",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0878",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0883",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0914",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0941",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0967",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0990",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1007",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1025",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1030",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1042",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1051",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1052",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1075",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1079",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1100",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1112",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1118",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1120",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T1155",
+      "delayed_stop_count": "18"
+    },
+    {
+      "trip_id": "T0019",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0031",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0033",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0055",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0058",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0061",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0064",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0066",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0077",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0090",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0099",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0114",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0122",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0134",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0135",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0149",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0154",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0157",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0167",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0189",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0201",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0208",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0257",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0297",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0304",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0315",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0316",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0320",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0325",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0326",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0329",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0355",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0356",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0357",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0362",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0363",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0373",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0404",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0411",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0452",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0462",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0463",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0464",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0465",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0467",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0492",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0503",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0523",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0530",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0592",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0616",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0635",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0647",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0651",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0653",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0668",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0677",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0686",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0689",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0713",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0721",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0722",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0781",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0782",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0783",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0785",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0791",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0797",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0811",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0813",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0828",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0846",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0854",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0869",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0876",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0891",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0892",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0901",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0912",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0952",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0956",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0957",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0961",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0987",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0989",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0991",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1009",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1040",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1045",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1057",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1094",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1113",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1119",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1128",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1133",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1147",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T1152",
+      "delayed_stop_count": "17"
+    },
+    {
+      "trip_id": "T0013",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0026",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0036",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0060",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0084",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0088",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0111",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0117",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0118",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0121",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0144",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0160",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0178",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0180",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0204",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0205",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0252",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0259",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0261",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0263",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0269",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0271",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0277",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0284",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0285",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0294",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0300",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0324",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0348",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0349",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0370",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0378",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0397",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0421",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0426",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0459",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0481",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0496",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0534",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0557",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0572",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0586",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0590",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0599",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0622",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0626",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0628",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0630",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0738",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0757",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0761",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0763",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0771",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0777",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0807",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0832",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0839",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0841",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0847",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0857",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0867",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0870",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0884",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0894",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0904",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0913",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0930",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0943",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0945",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0949",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0955",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1015",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1019",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1064",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1072",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1105",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T1124",
+      "delayed_stop_count": "16"
+    },
+    {
+      "trip_id": "T0016",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0030",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0046",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0073",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0086",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0112",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0115",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0120",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0140",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0147",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0155",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0182",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0183",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0191",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0212",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0231",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0258",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0265",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0268",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0286",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0287",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0313",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0314",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0335",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0341",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0346",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0354",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0359",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0374",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0417",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0429",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0435",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0441",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0443",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0446",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0456",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0504",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0506",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0507",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0522",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0535",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0547",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0556",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0600",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0601",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0613",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0618",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0623",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0627",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0634",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0636",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0676",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0680",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0681",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0684",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0708",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0714",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0718",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0727",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0755",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0762",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0767",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0774",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0793",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0794",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0845",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0850",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0852",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0855",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0860",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0861",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0865",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0885",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0887",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0899",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0909",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0917",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0925",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0939",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1000",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1001",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1005",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1008",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1010",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1054",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1065",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1078",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1091",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1123",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T1139",
+      "delayed_stop_count": "15"
+    },
+    {
+      "trip_id": "T0011",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0017",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0034",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0035",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0042",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0067",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0071",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0074",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0098",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0100",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0109",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0130",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0150",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0207",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0232",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0234",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0249",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0290",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0292",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0299",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0318",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0487",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0488",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0489",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0495",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0520",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0529",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0540",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0568",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0632",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0650",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0659",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0660",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0694",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0743",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0750",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0769",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0798",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0806",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0842",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0920",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0935",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0942",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0946",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0948",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0964",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0965",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0966",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0984",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1017",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1021",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1023",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1036",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1039",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1043",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1046",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1049",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1073",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1095",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1108",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1127",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T1141",
+      "delayed_stop_count": "14"
+    },
+    {
+      "trip_id": "T0006",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0007",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0051",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0092",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0093",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0136",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0137",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0166",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0181",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0194",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0213",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0216",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0217",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0218",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0220",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0238",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0254",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0255",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0256",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0279",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0281",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0293",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0295",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0302",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0308",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0322",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0343",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0364",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0366",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0387",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0413",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0419",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0454",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0457",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0471",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0478",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0494",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0543",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0544",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0549",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0554",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0575",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0584",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0597",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0612",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0642",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0645",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0657",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0691",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0699",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0719",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0723",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0725",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0728",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0737",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0752",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0775",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0800",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0819",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0837",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0849",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0853",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0873",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0890",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0895",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0918",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0940",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0958",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0968",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0974",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1006",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1087",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1102",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1111",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1117",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1143",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1148",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T1151",
+      "delayed_stop_count": "13"
+    },
+    {
+      "trip_id": "T0015",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0038",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0080",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0081",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0087",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0089",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0104",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0127",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0142",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0146",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0148",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0168",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0192",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0219",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0289",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0291",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0298",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0330",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0332",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0336",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0342",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0367",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0401",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0416",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0422",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0442",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0449",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0502",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0508",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0542",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0548",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0608",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0631",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0640",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0655",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0687",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0709",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0731",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0740",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0758",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0772",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0784",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0805",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0817",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0826",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0910",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0919",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0944",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0960",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0971",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0982",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0993",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1027",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1032",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1058",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1077",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1084",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1099",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1106",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1126",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1142",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T1145",
+      "delayed_stop_count": "12"
+    },
+    {
+      "trip_id": "T0001",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0040",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0048",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0193",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0226",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0228",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0241",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0253",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0262",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0327",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0340",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0415",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0453",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0455",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0479",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0491",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0499",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0510",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0513",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0551",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0562",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0594",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0649",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0665",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0672",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0695",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0704",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0748",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0753",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0754",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0822",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0856",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0858",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0862",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0866",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0879",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0881",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0893",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0924",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0934",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0947",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0996",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1033",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1056",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1068",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1107",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1122",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1132",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T1150",
+      "delayed_stop_count": "11"
+    },
+    {
+      "trip_id": "T0065",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0085",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0091",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0128",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0153",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0199",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0214",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0221",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0222",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0227",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0251",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0280",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0282",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0303",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0306",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0309",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0371",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0390",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0418",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0485",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0516",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0521",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0558",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0574",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0581",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0585",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0607",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0639",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0641",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0705",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0711",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0717",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0751",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0770",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0802",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0810",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0812",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0820",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0821",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0831",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0863",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0936",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0978",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0997",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T1013",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T1055",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T1067",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T1121",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T1125",
+      "delayed_stop_count": "10"
+    },
+    {
+      "trip_id": "T0024",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0041",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0082",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0172",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0173",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0203",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0237",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0272",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0275",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0296",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0334",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0344",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0347",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0361",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0372",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0379",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0400",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0420",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0448",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0483",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0497",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0517",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0518",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0527",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0533",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0545",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0546",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0552",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0577",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0610",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0611",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0617",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0644",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0663",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0671",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0735",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0843",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0871",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0898",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0921",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1003",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1028",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1037",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1038",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1071",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T1130",
+      "delayed_stop_count": "9"
+    },
+    {
+      "trip_id": "T0004",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0010",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0025",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0094",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0105",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0244",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0305",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0337",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0350",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0410",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0553",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0603",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0614",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0648",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0656",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0667",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0688",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0712",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0814",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0815",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0851",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0882",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0932",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0959",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T1012",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T1014",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T1115",
+      "delayed_stop_count": "8"
+    },
+    {
+      "trip_id": "T0008",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0018",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0032",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0057",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0069",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0076",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0108",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0116",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0123",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0215",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0323",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0328",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0360",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0385",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0412",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0414",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0473",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0515",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0578",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0605",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0606",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0620",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0674",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0685",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0726",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0730",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0732",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0747",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0801",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0809",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0823",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0836",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0872",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0903",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0927",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0931",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0938",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0969",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T1020",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T1082",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T1101",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T1109",
+      "delayed_stop_count": "7"
+    },
+    {
+      "trip_id": "T0003",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0014",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0132",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0202",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0260",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0389",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0436",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0460",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0469",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0474",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0484",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0500",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0537",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0541",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0625",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0633",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0675",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0701",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0766",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0803",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0848",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0864",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0888",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0896",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0963",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0973",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0983",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0992",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0998",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T1062",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T1081",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T1116",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T1131",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T1149",
+      "delayed_stop_count": "6"
+    },
+    {
+      "trip_id": "T0005",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0012",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0078",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0141",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0145",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0179",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0248",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0274",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0301",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0432",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0433",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0444",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0470",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0560",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0571",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0624",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0638",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0778",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0786",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0792",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0799",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0833",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0886",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0979",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0988",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T1060",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T1089",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T1138",
+      "delayed_stop_count": "5"
+    },
+    {
+      "trip_id": "T0021",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0049",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0177",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0206",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0229",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0380",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0393",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0405",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0696",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0720",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0729",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0739",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0923",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0975",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1004",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1011",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1044",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1074",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1134",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T1140",
+      "delayed_stop_count": "4"
+    },
+    {
+      "trip_id": "T0054",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0176",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0185",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0403",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0406",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0476",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0486",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0566",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0662",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0666",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0749",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0787",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0951",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0976",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0977",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0981",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T0995",
+      "delayed_stop_count": "3"
+    },
+    {
+      "trip_id": "T1076",
+      "delayed_stop_count": "3"
+    }
+  ],
+  "count": 1079
+}
+{
+  "query": "Q10",
+  "description": "Stops with above-average ridership",
+  "results": [
+    {
+      "stop_name": "Vermont / 88th",
+      "total_boardings": "6289"
+    },
+    {
+      "stop_name": "Vermont / Century",
+      "total_boardings": "6287"
+    },
+    {
+      "stop_name": "Vermont / Florence",
+      "total_boardings": "6197"
+    },
+    {
+      "stop_name": "Vermont / 120th",
+      "total_boardings": "6174"
+    },
+    {
+      "stop_name": "Vermont / Athens Station",
+      "total_boardings": "6080"
+    },
+    {
+      "stop_name": "Wilshire / 26th",
+      "total_boardings": "3429"
+    },
+    {
+      "stop_name": "San Antonio / Foster",
+      "total_boardings": "3421"
+    },
+    {
+      "stop_name": "Western / 96th",
+      "total_boardings": "3419"
+    },
+    {
+      "stop_name": "Venice / Grand",
+      "total_boardings": "3411"
+    },
+    {
+      "stop_name": "Western / 62nd",
+      "total_boardings": "3397"
+    },
+    {
+      "stop_name": "Hilgard / Le Conte",
+      "total_boardings": "3394"
+    },
+    {
+      "stop_name": "Fairfax / Drexel",
+      "total_boardings": "3383"
+    },
+    {
+      "stop_name": "Wilshire / Lincoln",
+      "total_boardings": "3373"
+    },
+    {
+      "stop_name": "Long Beach / Compton",
+      "total_boardings": "3352"
+    },
+    {
+      "stop_name": "Western / Gage",
+      "total_boardings": "3350"
+    },
+    {
+      "stop_name": "Sunset / Carolwood",
+      "total_boardings": "3344"
+    },
+    {
+      "stop_name": "Western / Imperial",
+      "total_boardings": "3344"
+    },
+    {
+      "stop_name": "Gridley / 183rd",
+      "total_boardings": "3337"
+    },
+    {
+      "stop_name": "Long Beach / Rosecrans",
+      "total_boardings": "3337"
+    },
+    {
+      "stop_name": "Pioneer / 168th",
+      "total_boardings": "3336"
+    },
+    {
+      "stop_name": "5th / Broadway",
+      "total_boardings": "3329"
+    },
+    {
+      "stop_name": "Gridley / 187th",
+      "total_boardings": "3327"
+    },
+    {
+      "stop_name": "Acacia / Walnut",
+      "total_boardings": "3326"
+    },
+    {
+      "stop_name": "Vermont / 79th",
+      "total_boardings": "3301"
+    },
+    {
+      "stop_name": "Vermont / 92nd",
+      "total_boardings": "3298"
+    },
+    {
+      "stop_name": "Vermont / Beverly",
+      "total_boardings": "3295"
+    },
+    {
+      "stop_name": "Pioneer / Artesia",
+      "total_boardings": "3292"
+    },
+    {
+      "stop_name": "Fairfax / Beverly",
+      "total_boardings": "3291"
+    },
+    {
+      "stop_name": "Long Beach / Palmer",
+      "total_boardings": "3290"
+    },
+    {
+      "stop_name": "Western / 89th",
+      "total_boardings": "3285"
+    },
+    {
+      "stop_name": "Pioneer / Mapledale",
+      "total_boardings": "3284"
+    },
+    {
+      "stop_name": "Wilshire / Federal",
+      "total_boardings": "3280"
+    },
+    {
+      "stop_name": "Wilshire / 14th",
+      "total_boardings": "3280"
+    },
+    {
+      "stop_name": "Wilshire / Crenshaw",
+      "total_boardings": "3278"
+    },
+    {
+      "stop_name": "Fairfax / San Vicente",
+      "total_boardings": "3275"
+    },
+    {
+      "stop_name": "5th / Colorado",
+      "total_boardings": "3274"
+    },
+    {
+      "stop_name": "Broadway / Venice",
+      "total_boardings": "3274"
+    },
+    {
+      "stop_name": "5th / Grand",
+      "total_boardings": "3273"
+    },
+    {
+      "stop_name": "Wilshire / Willaman",
+      "total_boardings": "3269"
+    },
+    {
+      "stop_name": "17th / Broadway",
+      "total_boardings": "3269"
+    },
+    {
+      "stop_name": "Venice / Hope",
+      "total_boardings": "3268"
+    },
+    {
+      "stop_name": "Long Beach / Pine",
+      "total_boardings": "3267"
+    },
+    {
+      "stop_name": "Venice / Hill",
+      "total_boardings": "3266"
+    },
+    {
+      "stop_name": "Sunset / Beverly Glen",
+      "total_boardings": "3265"
+    },
+    {
+      "stop_name": "Main / 11th",
+      "total_boardings": "3263"
+    },
+    {
+      "stop_name": "Wilshire / Westgate",
+      "total_boardings": "3258"
+    },
+    {
+      "stop_name": "Broadway / Arcadia",
+      "total_boardings": "3257"
+    },
+    {
+      "stop_name": "183rd / Alburtis",
+      "total_boardings": "3257"
+    },
+    {
+      "stop_name": "Western / 60th",
+      "total_boardings": "3257"
+    },
+    {
+      "stop_name": "Vermont / Wilshire",
+      "total_boardings": "3253"
+    },
+    {
+      "stop_name": "Broadway / Olympic",
+      "total_boardings": "3253"
+    },
+    {
+      "stop_name": "Wilshire / Rexford",
+      "total_boardings": "3250"
+    },
+    {
+      "stop_name": "Hilgard / Wyton",
+      "total_boardings": "3248"
+    },
+    {
+      "stop_name": "Spring / 6th",
+      "total_boardings": "3244"
+    },
+    {
+      "stop_name": "5th / Main",
+      "total_boardings": "3244"
+    },
+    {
+      "stop_name": "5th / San Pedro",
+      "total_boardings": "3243"
+    },
+    {
+      "stop_name": "Western / 92nd",
+      "total_boardings": "3237"
+    },
+    {
+      "stop_name": "Western / 54th",
+      "total_boardings": "3236"
+    },
+    {
+      "stop_name": "Western / 108th",
+      "total_boardings": "3234"
+    },
+    {
+      "stop_name": "Sunset / Foothill",
+      "total_boardings": "3232"
+    },
+    {
+      "stop_name": "Sunset / Park",
+      "total_boardings": "3232"
+    },
+    {
+      "stop_name": "Wilshire / 11th",
+      "total_boardings": "3232"
+    },
+    {
+      "stop_name": "Wilshire / Berkeley",
+      "total_boardings": "3230"
+    },
+    {
+      "stop_name": "Spring / 7th",
+      "total_boardings": "3228"
+    },
+    {
+      "stop_name": "Spring / Temple",
+      "total_boardings": "3225"
+    },
+    {
+      "stop_name": "Sunset / Bedford",
+      "total_boardings": "3224"
+    },
+    {
+      "stop_name": "5th / Santa Monica",
+      "total_boardings": "3223"
+    },
+    {
+      "stop_name": "Main / 9th",
+      "total_boardings": "3221"
+    },
+    {
+      "stop_name": "Long Beach / 69th",
+      "total_boardings": "3219"
+    },
+    {
+      "stop_name": "Wilshire / Bundy",
+      "total_boardings": "3216"
+    },
+    {
+      "stop_name": "Vermont / 110th",
+      "total_boardings": "3215"
+    },
+    {
+      "stop_name": "Wilshire / Brockton",
+      "total_boardings": "3215"
+    },
+    {
+      "stop_name": "Vermont / Vernon",
+      "total_boardings": "3214"
+    },
+    {
+      "stop_name": "Wilshire / Cloverdale",
+      "total_boardings": "3213"
+    },
+    {
+      "stop_name": "Sunset / Whittier",
+      "total_boardings": "3213"
+    },
+    {
+      "stop_name": "Artesia / Santa Fe",
+      "total_boardings": "3213"
+    },
+    {
+      "stop_name": "Washington Fairfax Hub",
+      "total_boardings": "3206"
+    },
+    {
+      "stop_name": "Cesar E Chavez / Alameda",
+      "total_boardings": "3205"
+    },
+    {
+      "stop_name": "Vermont / Colden",
+      "total_boardings": "3203"
+    },
+    {
+      "stop_name": "Sunset / Beaudry",
+      "total_boardings": "3202"
+    },
+    {
+      "stop_name": "Artesia / Susana",
+      "total_boardings": "3200"
+    },
+    {
+      "stop_name": "Vermont / Imperial",
+      "total_boardings": "3200"
+    },
+    {
+      "stop_name": "Wilshire / 6th",
+      "total_boardings": "3197"
+    },
+    {
+      "stop_name": "Pioneer / Excelsior",
+      "total_boardings": "3196"
+    },
+    {
+      "stop_name": "Cesar E Chavez / Grand",
+      "total_boardings": "3195"
+    },
+    {
+      "stop_name": "Cesar E Chavez / Broadway",
+      "total_boardings": "3193"
+    },
+    {
+      "stop_name": "Vermont / Adams",
+      "total_boardings": "3193"
+    },
+    {
+      "stop_name": "Wilshire / Alvarado",
+      "total_boardings": "3192"
+    },
+    {
+      "stop_name": "Wilshire / Robertson",
+      "total_boardings": "3191"
+    },
+    {
+      "stop_name": "Sunset / Alpine",
+      "total_boardings": "3185"
+    },
+    {
+      "stop_name": "Sunset / Echo Park",
+      "total_boardings": "3185"
+    },
+    {
+      "stop_name": "Sunset / Maple",
+      "total_boardings": "3182"
+    },
+    {
+      "stop_name": "Pioneer / Alondra",
+      "total_boardings": "3180"
+    },
+    {
+      "stop_name": "Wilshire / 17th",
+      "total_boardings": "3176"
+    },
+    {
+      "stop_name": "Broadway / 7th",
+      "total_boardings": "3170"
+    },
+    {
+      "stop_name": "Fairfax / Wilshire",
+      "total_boardings": "3169"
+    },
+    {
+      "stop_name": "San Antonio / Olive",
+      "total_boardings": "3167"
+    },
+    {
+      "stop_name": "Vermont / Pico",
+      "total_boardings": "3165"
+    },
+    {
+      "stop_name": "Fairfax / 6th",
+      "total_boardings": "3165"
+    },
+    {
+      "stop_name": "Wilshire / Barrington",
+      "total_boardings": "3165"
+    },
+    {
+      "stop_name": "Wilshire / La Brea",
+      "total_boardings": "3165"
+    },
+    {
+      "stop_name": "Central / 6th",
+      "total_boardings": "3164"
+    },
+    {
+      "stop_name": "Vermont / Melrose",
+      "total_boardings": "3164"
+    },
+    {
+      "stop_name": "Fairfax / 18th",
+      "total_boardings": "3162"
+    },
+    {
+      "stop_name": "Long Beach / Alondra",
+      "total_boardings": "3161"
+    },
+    {
+      "stop_name": "Sunset / Douglas",
+      "total_boardings": "3161"
+    },
+    {
+      "stop_name": "Western / 104th",
+      "total_boardings": "3161"
+    },
+    {
+      "stop_name": "Hilgard / Charing Cross",
+      "total_boardings": "3160"
+    },
+    {
+      "stop_name": "Sunset / Figueroa",
+      "total_boardings": "3158"
+    },
+    {
+      "stop_name": "Broadway / 8th",
+      "total_boardings": "3155"
+    },
+    {
+      "stop_name": "Western / 69th",
+      "total_boardings": "3153"
+    },
+    {
+      "stop_name": "Long Beach / Greenleaf",
+      "total_boardings": "3152"
+    },
+    {
+      "stop_name": "Wilshire / Normandie",
+      "total_boardings": "3151"
+    },
+    {
+      "stop_name": "Wilshire / Vermont",
+      "total_boardings": "3151"
+    },
+    {
+      "stop_name": "Wilshire / McClellan",
+      "total_boardings": "3150"
+    },
+    {
+      "stop_name": "Venice / Union",
+      "total_boardings": "3150"
+    },
+    {
+      "stop_name": "Vermont / Washington",
+      "total_boardings": "3144"
+    },
+    {
+      "stop_name": "Sunset / Charing Cross",
+      "total_boardings": "3142"
+    },
+    {
+      "stop_name": "Sunset / Vin Scully - Dodger Stadium",
+      "total_boardings": "3141"
+    },
+    {
+      "stop_name": "Fairfax / Oakwood",
+      "total_boardings": "3140"
+    },
+    {
+      "stop_name": "Western / 67th",
+      "total_boardings": "3139"
+    },
+    {
+      "stop_name": "Long Beach / Elm",
+      "total_boardings": "3139"
+    },
+    {
+      "stop_name": "Vermont / Jefferson",
+      "total_boardings": "3136"
+    },
+    {
+      "stop_name": "Vermont / 81st",
+      "total_boardings": "3133"
+    },
+    {
+      "stop_name": "Vermont / 83rd",
+      "total_boardings": "3133"
+    },
+    {
+      "stop_name": "Broadway / 2nd",
+      "total_boardings": "3131"
+    },
+    {
+      "stop_name": "Fairfax / 1st",
+      "total_boardings": "3130"
+    },
+    {
+      "stop_name": "Patsaouras Transit Plaza",
+      "total_boardings": "3130"
+    },
+    {
+      "stop_name": "Wilshire / Crescent Heights",
+      "total_boardings": "3129"
+    },
+    {
+      "stop_name": "Vermont / 104th",
+      "total_boardings": "3129"
+    },
+    {
+      "stop_name": "Fairfax / Olympic",
+      "total_boardings": "3129"
+    },
+    {
+      "stop_name": "Vermont / 3rd",
+      "total_boardings": "3128"
+    },
+    {
+      "stop_name": "Wilshire / Western",
+      "total_boardings": "3128"
+    },
+    {
+      "stop_name": "Western / 76th",
+      "total_boardings": "3123"
+    },
+    {
+      "stop_name": "Hilgard / Westholme",
+      "total_boardings": "3121"
+    },
+    {
+      "stop_name": "Western / 110th",
+      "total_boardings": "3121"
+    },
+    {
+      "stop_name": "San Antonio / Orange",
+      "total_boardings": "3120"
+    },
+    {
+      "stop_name": "Western / Manchester",
+      "total_boardings": "3118"
+    },
+    {
+      "stop_name": "Alameda / 6th Layover",
+      "total_boardings": "3117"
+    },
+    {
+      "stop_name": "Vermont / Venice",
+      "total_boardings": "3117"
+    },
+    {
+      "stop_name": "Vermont / Martin Luther King Jr",
+      "total_boardings": "3115"
+    },
+    {
+      "stop_name": "Fairfax / Airdrome",
+      "total_boardings": "3115"
+    },
+    {
+      "stop_name": "Spring / 3rd",
+      "total_boardings": "3113"
+    },
+    {
+      "stop_name": "Sunset / Rodeo",
+      "total_boardings": "3113"
+    },
+    {
+      "stop_name": "Western / Century",
+      "total_boardings": "3111"
+    },
+    {
+      "stop_name": "Sunset / Beverly",
+      "total_boardings": "3109"
+    },
+    {
+      "stop_name": "Long Beach / Euclid",
+      "total_boardings": "3106"
+    },
+    {
+      "stop_name": "Fairfax / 8th",
+      "total_boardings": "3105"
+    },
+    {
+      "stop_name": "Long Beach / Bennett",
+      "total_boardings": "3105"
+    },
+    {
+      "stop_name": "Division 13 Layover",
+      "total_boardings": "3102"
+    },
+    {
+      "stop_name": "Sunset / Copley",
+      "total_boardings": "3102"
+    },
+    {
+      "stop_name": "Wilshire / Fairfax",
+      "total_boardings": "3100"
+    },
+    {
+      "stop_name": "Le Conte / Westwood",
+      "total_boardings": "3098"
+    },
+    {
+      "stop_name": "San Antonio / Rosecrans",
+      "total_boardings": "3094"
+    },
+    {
+      "stop_name": "Fairfax / Saturn",
+      "total_boardings": "3093"
+    },
+    {
+      "stop_name": "Vermont / 76th",
+      "total_boardings": "3092"
+    },
+    {
+      "stop_name": "Wilshire / Yale",
+      "total_boardings": "3091"
+    },
+    {
+      "stop_name": "Wilshire / 20th",
+      "total_boardings": "3091"
+    },
+    {
+      "stop_name": "Pioneer / 166th",
+      "total_boardings": "3091"
+    },
+    {
+      "stop_name": "Long Beach / Ezmirlian",
+      "total_boardings": "3087"
+    },
+    {
+      "stop_name": "Fairfax / Whitworth",
+      "total_boardings": "3085"
+    },
+    {
+      "stop_name": "Western / 83rd",
+      "total_boardings": "3079"
+    },
+    {
+      "stop_name": "Norwalk / Crewe",
+      "total_boardings": "3078"
+    },
+    {
+      "stop_name": "Fairfax / Pico",
+      "total_boardings": "3077"
+    },
+    {
+      "stop_name": "Vermont / 94th",
+      "total_boardings": "3075"
+    },
+    {
+      "stop_name": "Vermont / Exposition",
+      "total_boardings": "3075"
+    },
+    {
+      "stop_name": "Long Beach / Artesia",
+      "total_boardings": "3075"
+    },
+    {
+      "stop_name": "Vermont / Slauson",
+      "total_boardings": "3074"
+    },
+    {
+      "stop_name": "Sunset / Rexford",
+      "total_boardings": "3073"
+    },
+    {
+      "stop_name": "Venice / Figueroa",
+      "total_boardings": "3071"
+    }
+  ],
+  "count": 170
+}

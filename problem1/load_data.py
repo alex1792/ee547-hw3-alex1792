@@ -136,16 +136,39 @@ def load_line_stops(conn, datadir):
             reader = csv.DictReader(f)
             with conn.cursor() as cur:
                 rows = []
+                seen_keys = set()  # Track seen (line_id, stop_id) pairs to avoid duplicates
+                skipped_duplicates = []
+                skipped_fk = []
                 for row in reader:
                     # Get line_id and stop_id from foreign key lookups
                     line_id, stop_id = get_line_stop_ids(cur, row['line_name'], row['stop_name'])
                     if line_id and stop_id:
-                        rows.append((
-                            line_id,
-                            stop_id,
-                            int(row['sequence']),
-                            int(row['time_offset'])
-                        ))
+                        key = (line_id, stop_id)
+                        if key not in seen_keys:
+                            seen_keys.add(key)
+                            rows.append((
+                                line_id,
+                                stop_id,
+                                int(row['sequence']),
+                                int(row['time_offset'])
+                            ))
+                        else:
+                            skipped_duplicates.append((row['line_name'], row['stop_name'], row['sequence']))
+                    else:
+                        skipped_fk.append((row['line_name'], row['stop_name'], line_id is None, stop_id is None))
+                
+                if skipped_duplicates:
+                    print(f"\nWarning: Skipped {len(skipped_duplicates)} duplicate (line_id, stop_id) rows")
+                
+                if skipped_fk:
+                    print(f"\nWarning: Skipped {len(skipped_fk)} rows due to missing foreign keys:")
+                    for line_name, stop_name, no_line, no_stop in skipped_fk[:10]:  # Show first 10
+                        reason = []
+                        if no_line:
+                            reason.append("line not found")
+                        if no_stop:
+                            reason.append("stop not found")
+                        print(f"  {line_name} / {stop_name}: {', '.join(reason)}")
                 
                 if rows:
                     execute_values(
@@ -160,6 +183,10 @@ def load_line_stops(conn, datadir):
     except psycopg2.Error as e:
         print(f"Error loading line_stops: {e}", file=sys.stderr)
         conn.rollback()
+        return 0
+    except (ValueError, KeyError) as e:
+        print(f"Error parsing line_stops CSV: {e}", file=sys.stderr)
+        print(f"Row: {row}", file=sys.stderr)
         return 0
 
 
@@ -216,18 +243,29 @@ def load_stop_events(conn, datadir):
             reader = csv.DictReader(f)
             with conn.cursor() as cur:
                 rows = []
+                seen_keys = set()  # Track seen (trip_id, stop_id) pairs to avoid duplicates
+                skipped_duplicates = []
                 for row in reader:
                     # Get stop_id from stop_name (trip_id is already in correct format)
                     stop_id = get_stop_id(cur, row['stop_name'])
                     if stop_id:
-                        rows.append((
-                            row['trip_id'],  # Use trip_id directly from CSV
-                            stop_id,
-                            row['scheduled'],
-                            row['actual'],
-                            int(row['passengers_on']),
-                            int(row['passengers_off'])
-                        ))
+                        key = (row['trip_id'], stop_id)
+                        if key not in seen_keys:
+                            seen_keys.add(key)
+                            rows.append((
+                                row['trip_id'],  # Use trip_id directly from CSV
+                                stop_id,
+                                row['scheduled'],
+                                row['actual'],
+                                int(row['passengers_on']),
+                                int(row['passengers_off'])
+                            ))
+                        else:
+                            skipped_duplicates.append((row['trip_id'], row['stop_name']))
+                    # Note: We don't track missing stops separately here, but could if needed
+                
+                if skipped_duplicates:
+                    print(f"\nWarning: Skipped {len(skipped_duplicates)} duplicate (trip_id, stop_id) rows")
                 
                 if rows:
                     execute_values(
@@ -242,6 +280,10 @@ def load_stop_events(conn, datadir):
     except psycopg2.Error as e:
         print(f"Error loading stop_events: {e}", file=sys.stderr)
         conn.rollback()
+        return 0
+    except (ValueError, KeyError) as e:
+        print(f"Error parsing stop_events CSV: {e}", file=sys.stderr)
+        print(f"Row: {row}", file=sys.stderr)
         return 0
 
 

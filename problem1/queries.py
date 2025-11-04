@@ -117,20 +117,12 @@ def get_query_definitions():
             "id": "Q5",
             "text": "Routes serving both Wilshire / Veteran and Le Conte / Broxton",
             "sql": """
-                SELECT l.line_name
+                SELECT DISTINCT l.line_name
                 FROM lines l
-                WHERE l.line_id IN (
-                    SELECT ls1.line_id
-                    FROM line_stops ls1
-                    JOIN stops s1 ON ls1.stop_id = s1.stop_id
-                    WHERE s1.stop_name = 'Wilshire / Veteran'
-                )
-                AND l.line_id IN (
-                    SELECT ls2.line_id
-                    FROM line_stops ls2
-                    JOIN stops s2 ON ls2.stop_id = s2.stop_id
-                    WHERE s2.stop_name = 'Le Conte / Broxton'
-                )
+                JOIN line_stops ls1 ON l.line_id = ls1.line_id
+                JOIN stops s1 ON ls1.stop_id = s1.stop_id AND s1.stop_name = 'Wilshire / Veteran'
+                JOIN line_stops ls2 ON l.line_id = ls2.line_id
+                JOIN stops s2 ON ls2.stop_id = s2.stop_id AND s2.stop_name = 'Le Conte / Broxton'
                 ORDER BY l.line_name;
             """
         },
@@ -139,7 +131,7 @@ def get_query_definitions():
             "text": "Average ridership by line",
             "sql": """
                 SELECT l.line_name, 
-                       COALESCE(AVG(se.passengers_on + se.passengers_off), 0) as avg_passengers
+                       COALESCE(AVG(se.passengers_on), 0) as avg_passengers
                 FROM lines l
                 JOIN trips t ON l.line_id = t.line_id
                 JOIN stop_events se ON t.trip_id = se.trip_id
